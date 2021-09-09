@@ -1,6 +1,9 @@
+package Controller_Layer;
+
+import Model_Layer.DJ;
 import java.util.Scanner;
 
-public class Input {
+public class MainController {
 
     // final static variables
     private final static int MIN_BOUNDARY = 0;
@@ -16,19 +19,27 @@ public class Input {
     private Scanner scanner;
     private String username;
     private DJ dj;
+    private InputController inputController;
 
 
     // constructor
-    public Input() {
+    public MainController() {
 
-        // initiate scanner once;
-        this.scanner = new Scanner(System.in);
-        System.out.println("Enter username");
-        this.username = scanner.nextLine();
-        System.out.println("Username is: " + username + "!!");
+        // create InputController for handling system input
+        this.inputController = new InputController();
+
+        // set username for user
+        this.setUserName();
 
         // open menu
         this.openMenu();
+    }
+
+    // set username
+    private void setUserName() {
+        System.out.println("Enter username");
+        this.username = this.inputController.input();
+        System.out.println("Username is: " + username + "!!");
     }
 
     // open the menu for user interaction
@@ -40,7 +51,9 @@ public class Input {
             this.printMenu();
 
             // try to parse input value to number
-            this.inputNumber = this.parseInputToInt();
+            this.inputNumber = this.inputController.parseInputToInt();
+
+            // check if number is between boundaries
             if (this.inputNumber > this.MIN_BOUNDARY && this.inputNumber < this.MAX_BOUNDARY) {
                 this.menu(this.inputNumber);
             } else {
@@ -55,11 +68,12 @@ public class Input {
 
     // print menu
     private void printMenu() {
-        System.out.println("---Menu---");
+        System.out.println("-----Menu-----");
         System.out.println("Number 1: Create DJ");
         System.out.println("Number 2: Enter Review");
         System.out.println("Number 3: Request Number");
         System.out.println("Number 4: Terminate Program");
+        System.out.println("---End-Menu---");
         System.out.println("Choose a number between 1 and 4: ");
     }
 
@@ -82,32 +96,11 @@ public class Input {
         }
     }
 
-    private int parseInputToInt() {
-        while (true) {
-            try {
-                int number = Integer.parseInt(this.scanner.next());
-                return number;
-            } catch (NumberFormatException e) {
-                System.out.println("Number please, how hard can it be...");
-            }
-        }
-    }
-
     // create a dj
     private void createDJ() {
-        System.out.print("Set DJ Name: ");
-        String djName = this.scanner.nextLine();
-        System.out.print("DJ Name is: " + djName);
 
-        System.out.print("Set DJ Age: ");
-        int djAge = this.parseInputToInt();
-        System.out.print("DJ Name is: " + djAge);
-
-        System.out.print("Set DJ Style: ");
-        String djStyle = this.scanner.nextLine();
-        System.out.print("DJ Name is: " + djStyle);
-
-        this.dj = new DJ(djName, djAge, djStyle);
+        this.dj = new DJ(this);
+        this.dj.printDJData();
     }
 
     // enter review
@@ -135,5 +128,7 @@ public class Input {
         System.exit(0);
     }
 
-
+    public InputController getInputController() {
+        return inputController;
+    }
 }
