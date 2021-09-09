@@ -1,38 +1,32 @@
+import java.util.Random;
+
 public class DJ {
 
-    private String stageName;
-    private String name;
-    private int registrationId;
+    private final int id;
+    private final String name;
+    private final int age;
+    private final String style;
+    private final static int BOUND = 100;
 
-    public DJ(){
-
-    }
-
-    public void playSet(String setName){
-
-    }
-
-    public void setName(String name){
+    public DJ(String name, int age, String style) {
+        this.id = this.generateID();
         this.name = name;
+        this.age = age;
+        this.style = style;
     }
 
-    public String getStageName() {
-        return stageName;
+    private int generateID() {
+        Random random = new Random();
+        return random.nextInt(this.BOUND);
     }
 
-    public void setStageName(String stageName) {
-        this.stageName = stageName;
+    // print DJ information
+    public void printDJData() {
+        System.out.println("DJ id: " + this.id);
+        System.out.println("DJ name: " + this.name);
+        System.out.println("DJ age: " + this.age);
+        System.out.println("DJ style: " + this.style);
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public int getRegistrationId() {
-        return registrationId;
-    }
-
-    public void setRegistrationId(int registrationId) {
-        this.registrationId = registrationId;
-    }
 }
