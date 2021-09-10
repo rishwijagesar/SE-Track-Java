@@ -18,7 +18,7 @@ public class InputController {
             try {
                 int number = Integer.parseInt(this.scanner.next());
                 return number;
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Number please, how hard can it be...");
             }
         }

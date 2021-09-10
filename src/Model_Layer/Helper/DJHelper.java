@@ -21,27 +21,21 @@ public class DJHelper implements IArray{
         return random.nextInt(this.BOUND);
     }
 
-    // create new ArrayList
     @Override
     public void addToArrayList() {
 
-        // add new set to list
-        this.setLists.add(new Set());
     }
 
-    // read ArrayList
     @Override
     public void readArrayList() {
 
     }
 
-    // update Arraylist
     @Override
     public void updateArrayList() {
 
     }
 
-    // remove arraylist
     @Override
     public void removeArrayList() {
 
