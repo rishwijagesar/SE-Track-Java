@@ -1,5 +1,7 @@
 package Model_Layer;
 
+import Model_Layer.Helper.SetHelper;
+
 public class Set {
 
     private int Id;
@@ -9,55 +11,9 @@ public class Set {
     private String beginTime;
     private String endTime;
 
-    public Set(){
+    private final SetHelper setHelper;
 
-    }
-
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public String getStage() {
-        return stage;
-    }
-
-    public void setStage(String stage) {
-        this.stage = stage;
-    }
-
-    public String getBeginTime() {
-        return beginTime;
-    }
-
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public Set() {
+        this.setHelper = new SetHelper();
     }
 }

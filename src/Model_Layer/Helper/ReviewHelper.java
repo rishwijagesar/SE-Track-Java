@@ -2,7 +2,7 @@ package Model_Layer.Helper;
 
 public class ReviewHelper implements IArray{
     @Override
-    public void createArrayList() {
+    public void addToArrayList() {
 
     }
 

@@ -23,8 +23,10 @@ public class DJHelper implements IArray{
 
     // create new ArrayList
     @Override
-    public void createArrayList() {
+    public void addToArrayList() {
 
+        // add new set to list
+        this.setLists.add(new Set());
     }
 
     // read ArrayList

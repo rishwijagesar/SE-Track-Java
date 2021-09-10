@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface IArray {
 
     // create Arraylist
-    public void createArrayList();
+    public void addToArrayList();
 
     // read Arraylist
     public void readArrayList();

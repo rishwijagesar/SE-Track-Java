@@ -21,7 +21,6 @@ public class MainController {
     private DJ dj;
     private InputController inputController;
 
-
     // constructor
     public MainController() {
 

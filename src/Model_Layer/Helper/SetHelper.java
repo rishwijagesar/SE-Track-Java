@@ -3,7 +3,7 @@ package Model_Layer.Helper;
 public class SetHelper implements IArray{
 
     @Override
-    public void createArrayList() {
+    public void addToArrayList() {
 
     }
 
